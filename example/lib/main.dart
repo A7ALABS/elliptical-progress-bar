@@ -46,12 +46,78 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(
                   height: 20,
                 ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: EllipticalProgressBar(
+                        fillColor: Colors.red,
+                        bgColor: Colors.red.withOpacity(0.5),
+                        progress: 70,
+                        thickness: 5,
+                        textColor: Colors.blue,
+                        showCenterProgress: true,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: EllipticalProgressBar(
+                        fillColor: Colors.red,
+                        bgColor: Colors.red.withOpacity(0.5),
+                        progress: 50,
+                        textColor: Colors.blue,
+                        // showCenterProgress: false,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: EllipticalProgressBar(
+                        fillColor: Colors.red,
+                        bgColor: Colors.red.withOpacity(0.5),
+                        progress: 90,
+                        textColor: Colors.blue,
+                        showCenterProgress: false,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: EllipticalProgressBar(
+                        fillColor: Colors.red,
+                        bgColor: Colors.red.withOpacity(0.5),
+                        progress: 90,
+                        textColor: Colors.blue,
+                        showCenterProgress: false,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: EllipticalProgressBar(
+                        fillColor: Colors.red,
+                        bgColor: Colors.red.withOpacity(0.5),
+                        progress: 90,
+                        textColor: Colors.blue,
+                        showCenterProgress: false,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                  ],
+                ),
                 EllipticalProgressBar(
                   fillColor: Colors.red,
                   bgColor: Colors.red.withOpacity(0.5),
                   thickness: 30,
                   progress: 70,
                   textColor: Colors.blue,
+                  showCenterProgress: false,
                 ),
                 const SizedBox(
                   height: 20,
@@ -59,7 +125,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 EllipticalProgressBar(
                   fillColor: Colors.red,
                   bgColor: Colors.red.withOpacity(0.5),
-                  thickness: 30,
                   progress: 70,
                   textColor: Colors.blue,
                 ),

@@ -13,7 +13,7 @@ class EllipticalProgressBar extends StatelessWidget {
       required this.progress,
       this.textColor = Colors.white,
       this.showCenterProgress = true,
-      this.thickness = 30})
+      this.thickness = 10})
       : super(key: key);
 
   // final int startAngle;
@@ -33,43 +33,50 @@ class EllipticalProgressBar extends StatelessWidget {
     const endAngle = 180;
     return Stack(
       children: [
-        Container(
-          width: double.infinity,
-          height: 123.32,
-          decoration: BoxDecoration(
-              shape: BoxShape.rectangle,
-              border: Border.all(
-                color: bgColor,
-                // width: borderWidth,
-                width: thickness!,
-              ),
-              borderRadius: const BorderRadius.all(Radius.elliptical(63, 64))),
+        AspectRatio(
+          aspectRatio: 3 / 1,
+          child: Container(
+            width: double.infinity,
+            // height: 123.32,
+            decoration: BoxDecoration(
+                shape: BoxShape.rectangle,
+                border: Border.all(
+                  color: bgColor,
+                  // width: borderWidth,
+                  width: thickness!,
+                ),
+                borderRadius:
+                    const BorderRadius.all(Radius.elliptical(63, 64))),
+          ),
         ),
-        SizedBox(
-          width: double.infinity,
-          height: 123.32,
-          child: CustomPaint(
-            painter: ProgressIndicatorPainter(
-                // width: borderWidth,
-                width: thickness!,
-                startAngle: startAngle,
-                sweepAngle: endAngle,
-                color: fillColor,
-                progressValue: progress,
-                thickness: thickness),
-            child: showCenterProgress!
-                ? Center(
-                    child: Container(
-                      width: buttonSize - 20.0,
-                      height: buttonSize - 20.0,
-                      child: Center(
-                        child: Text('${progress.toInt().toString()}%',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(color: textColor)),
+        AspectRatio(
+          aspectRatio: 3 / 1,
+          child: SizedBox(
+            width: double.infinity,
+            // height: 123.32,
+            child: CustomPaint(
+              painter: ProgressIndicatorPainter(
+                  // width: borderWidth,
+                  width: thickness!,
+                  startAngle: startAngle,
+                  sweepAngle: endAngle,
+                  color: fillColor,
+                  progressValue: progress,
+                  thickness: thickness),
+              child: showCenterProgress!
+                  ? Center(
+                      child: Container(
+                        width: buttonSize - 20.0,
+                        height: buttonSize - 20.0,
+                        child: Center(
+                          child: Text('${progress.toInt().toString()}%',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(color: textColor)),
+                        ),
                       ),
-                    ),
-                  )
-                : const SizedBox(),
+                    )
+                  : const SizedBox(),
+            ),
           ),
         ),
       ],
