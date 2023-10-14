@@ -1,7 +1,7 @@
 name: elliptical_progress_bar
 description: A new Flutter package project.
 version: 0.0.1
-homepage:
+homepage: https://github.com/A7ALABS/elliptical-progress-bar
 
 environment:
   sdk: '>=3.1.0 <4.0.0'

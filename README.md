@@ -1,39 +1,52 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Elliptical progress bar 
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+**Features**
+* Responsive
+* Customizable
+* Easy styling
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+## Installing
+`flutter get elliptical_progress_bar`
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+## Important
+The aspect ratio of the graph is 3:1, adjust thickness required accordingly.
 
 ## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+```
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          // backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: Text('Elliptical progress bar'),
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: 
+                EllipticalProgressBar(
+                  fillColor: Colors.red,
+                  bgColor: Colors.red.withOpacity(0.5),
+                  thickness: 30,
+                  progress: 70,
+                  textColor: Colors.blue,
+                  showCenterProgress: false,
+                ),
+            ),
+          ),
+        );
+  }
+}
 ```
 
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+## Props
+| Name              | Value                                                               | Description                                                                                       |
+|-------------------| ------------------------------------------------------------------  | -------------------------------------------------------------------------------------------------------------------------------------------     |
+| fillColor      | Color  | Color to show the progress with.    |
+|  bgColor         | Color | Color to show the loop with.  |
+| progress          | double | Progress value (0 - 100).  |
+| textColor         | Color, optional | Color to show the progress text in center with.  |
+|showCenterProgress           | bool, default - true, optional  | enable to show the center progress value, set to false to hide |
+|thickness| double, default - 10, optional | set the thickness of the loop |
+| progressTextStyle          | TextStyle, optional  | To customise the center progress text style|
