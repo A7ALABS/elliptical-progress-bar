@@ -15,13 +15,14 @@ class EllipticalProgressBar extends StatelessWidget {
       this.progressTextStyle})
       : super(key: key);
 
-  final Color fillColor;
-  final Color bgColor;
-  final Color? textColor;
-  final bool? showCenterProgress;
-  final double progress;
-  final double? thickness;
-  final TextStyle? progressTextStyle;
+  final Color fillColor; //show the color of progress
+  final Color bgColor; //color of the loop
+  final Color? textColor; //color of the center progress text
+  final bool? showCenterProgress; //to show or hide the progress value at center
+  final double progress; //progress value
+  final double? thickness; //thickness of the bar
+  final TextStyle?
+      progressTextStyle; //custom text style for the center progress value
   @override
   Widget build(BuildContext context) {
     const buttonSize = 80.0;
@@ -29,11 +30,11 @@ class EllipticalProgressBar extends StatelessWidget {
     const endAngle = 180;
     return Stack(
       children: [
+        //outer opaque loop
         AspectRatio(
           aspectRatio: 3 / 1,
           child: Container(
             width: double.infinity,
-            // height: 123.32,
             decoration: BoxDecoration(
               shape: BoxShape.rectangle,
               border: Border.all(
@@ -46,6 +47,7 @@ class EllipticalProgressBar extends StatelessWidget {
             ),
           ),
         ),
+        //for the inner progress bar and inner filling loop
         AspectRatio(
           aspectRatio: 3 / 1,
           child: SizedBox(
