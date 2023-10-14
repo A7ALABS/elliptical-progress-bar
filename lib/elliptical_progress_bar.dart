@@ -62,7 +62,7 @@ class EllipticalProgressBar extends StatelessWidget {
                   thickness: thickness),
               child: showCenterProgress!
                   ? Center(
-                      child: Container(
+                      child: SizedBox(
                         width: buttonSize - 20.0,
                         height: buttonSize - 20.0,
                         child: Center(
