@@ -6,29 +6,25 @@ const Color darkBlue = Color.fromARGB(255, 18, 32, 47);
 class EllipticalProgressBar extends StatelessWidget {
   const EllipticalProgressBar(
       {Key? key,
-      // required this.startAngle,
-      // required this.endAngle,
       required this.fillColor,
       required this.bgColor,
       required this.progress,
       this.textColor = Colors.white,
       this.showCenterProgress = true,
-      this.thickness = 10})
+      this.thickness = 10,
+      this.progressTextStyle})
       : super(key: key);
 
-  // final int startAngle;
-  // final int endAngle;
   final Color fillColor;
   final Color bgColor;
   final Color? textColor;
   final bool? showCenterProgress;
   final double progress;
   final double? thickness;
-
+  final TextStyle? progressTextStyle;
   @override
   Widget build(BuildContext context) {
     const buttonSize = 80.0;
-    const borderWidth = 2.0;
     const startAngle = -90;
     const endAngle = 180;
     return Stack(
@@ -71,7 +67,9 @@ class EllipticalProgressBar extends StatelessWidget {
                         child: Center(
                           child: Text('${progress.toInt().toString()}%',
                               textAlign: TextAlign.center,
-                              style: TextStyle(color: textColor)),
+                              style: progressTextStyle != null
+                                  ? progressTextStyle!
+                                  : TextStyle(color: textColor)),
                         ),
                       ),
                     )

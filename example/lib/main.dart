@@ -54,7 +54,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         bgColor: Colors.red.withOpacity(0.5),
                         progress: 70,
                         thickness: 5,
-                        textColor: Colors.blue,
+                        progressTextStyle: const TextStyle(
+                            color: Colors.blueAccent,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w300),
                         showCenterProgress: true,
                       ),
                     ),
