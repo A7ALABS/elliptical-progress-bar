@@ -35,14 +35,15 @@ class EllipticalProgressBar extends StatelessWidget {
             width: double.infinity,
             // height: 123.32,
             decoration: BoxDecoration(
-                shape: BoxShape.rectangle,
-                border: Border.all(
-                  color: bgColor,
-                  // width: borderWidth,
-                  width: thickness!,
-                ),
-                borderRadius:
-                    const BorderRadius.all(Radius.elliptical(63, 64))),
+              shape: BoxShape.rectangle,
+              border: Border.all(
+                color: bgColor,
+                width: thickness!,
+              ),
+              borderRadius: const BorderRadius.all(
+                Radius.elliptical(63, 64),
+              ),
+            ),
           ),
         ),
         AspectRatio(
