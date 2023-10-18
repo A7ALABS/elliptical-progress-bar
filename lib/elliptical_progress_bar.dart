@@ -41,8 +41,8 @@ class EllipticalProgressBar extends StatelessWidget {
                 color: bgColor,
                 width: thickness!,
               ),
-              borderRadius: const BorderRadius.all(
-                Radius.elliptical(63, 64),
+              borderRadius: BorderRadius.all(
+                Radius.circular(MediaQuery.of(context).size.width / 6),
               ),
             ),
           ),
@@ -103,7 +103,6 @@ class ProgressIndicatorPainter extends CustomPainter {
   final double? thickness;
   @override
   void paint(Canvas canvas, Size size) {
-    // const r = 93 / 2;
     final r = size.height / 2 - thickness! / 2;
     final startAngleRad = startAngle * (math.pi / 180.0);
     // final sweepAngleRad = sweepAngle * (math.pi / 180.0);

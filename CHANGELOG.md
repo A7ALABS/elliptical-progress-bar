@@ -7,3 +7,6 @@
 
 ## 0.0.1+2
 * Added documentation
+
+## 0.0.1+3
+* Added web support
