@@ -118,7 +118,7 @@ class ProgressIndicatorPainter extends CustomPainter {
 
     var progress = progressValue * 6;
     int x = (progress / 100).floor();
-    var sections = [0.0, 0, 0, 0, 0, 0];
+    var sections = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
     for (int i = 0; i < x.toInt(); i++) {
       sections[i] = 1;
     }

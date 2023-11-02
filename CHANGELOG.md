@@ -10,3 +10,9 @@
 
 ## 0.0.1+3
 * Added web support
+
+## 0.0.1+4
+* Added documentation
+
+## 0.0.1+5
+* Fixed small bug

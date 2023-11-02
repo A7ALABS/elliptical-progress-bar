@@ -1,6 +1,6 @@
 name: elliptical_progress_bar
 description: A pretty flutter package to create elliptical progress bars with multiple customisation options, such as the ability to set the colors, stroke width, text style and more.
-version: 0.0.1+4
+version: 0.0.1+5
 homepage: https://github.com/A7ALABS/elliptical-progress-bar
 issue_tracker: https://github.com/A7ALABS/elliptical-progress-bar/issues
 
