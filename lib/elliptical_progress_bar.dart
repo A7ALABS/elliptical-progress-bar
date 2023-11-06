@@ -25,7 +25,6 @@ class EllipticalProgressBar extends StatelessWidget {
       progressTextStyle; //custom text style for the center progress value
   @override
   Widget build(BuildContext context) {
-    const buttonSize = 80.0;
     const startAngle = -90;
     const endAngle = 180;
     return Stack(
@@ -52,10 +51,8 @@ class EllipticalProgressBar extends StatelessWidget {
           aspectRatio: 3 / 1,
           child: SizedBox(
             width: double.infinity,
-            // height: 123.32,
             child: CustomPaint(
               painter: ProgressIndicatorPainter(
-                  // width: borderWidth,
                   width: thickness!,
                   startAngle: startAngle,
                   sweepAngle: endAngle,
@@ -64,16 +61,12 @@ class EllipticalProgressBar extends StatelessWidget {
                   thickness: thickness),
               child: showCenterProgress!
                   ? Center(
-                      child: SizedBox(
-                        width: buttonSize - 20.0,
-                        height: buttonSize - 20.0,
-                        child: Center(
-                          child: Text('${progress.toInt().toString()}%',
-                              textAlign: TextAlign.center,
-                              style: progressTextStyle != null
-                                  ? progressTextStyle!
-                                  : TextStyle(color: textColor)),
-                        ),
+                      child: Center(
+                        child: Text('${progress.toInt().toString()}%',
+                            textAlign: TextAlign.center,
+                            style: progressTextStyle != null
+                                ? progressTextStyle!
+                                : TextStyle(color: textColor)),
                       ),
                     )
                   : const SizedBox(),
@@ -105,7 +98,6 @@ class ProgressIndicatorPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final r = size.height / 2 - thickness! / 2;
     final startAngleRad = startAngle * (math.pi / 180.0);
-    // final sweepAngleRad = sweepAngle * (math.pi / 180.0);
     final firstArcCenter = Offset(
         size.width / 2 + ((size.width / 2 - r) - thickness! / 2),
         size.height / 2);
