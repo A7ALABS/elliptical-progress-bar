@@ -19,3 +19,7 @@
 
 ## 0.0.1+6
 * Fixed text bug
+
+
+## 0.0.1+6
+* Added desktop support
