@@ -1,3 +1,4 @@
+import 'package:elliptical_progress_bar/circular_progress_bar.dart';
 import 'package:elliptical_progress_bar/elliptical_progress_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -35,8 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          // backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text('Elliptical progress bar'),
+          title: const Text('Elliptical progress bar'),
           backgroundColor: Colors.deepOrange,
         ),
         body: SingleChildScrollView(
@@ -124,6 +124,39 @@ class _MyHomePageState extends State<MyHomePage> {
                   progress: 33,
                   showCenterProgress: false,
                   progressTextStyle: const TextStyle(fontSize: 30),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const CircularProgressBar(
+                  progress: 0.8,
+                  height: 170,
+                  thickness: 10,
+                  backgroundColor: Colors.red,
+                  color: Colors.orange,
+                  centerContent: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('950',
+                          style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.blue)),
+                      Text('kcal',
+                          style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.blueAccent))
+                    ],
+                  ),
+                ),
+                SizedBox.square(
+                  dimension: 112,
+                  child: CircularProgressIndicator(
+                    value: 0.30,
+                    color: Colors.green,
+                    strokeWidth: 24.0,
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
