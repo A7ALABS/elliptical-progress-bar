@@ -21,9 +21,12 @@
 * Fixed text bug
 
 
-## 0.0.1+6
+## 0.0.1+7
 * Added desktop support
 
 ## 0.1.0
 * EllipticalProgressBar is now stateful.
 * Added *AnimatedEllipticalProgressBar*, supporting animation. 
+
+## 0.1.0+1
+* Documentation fixes.
