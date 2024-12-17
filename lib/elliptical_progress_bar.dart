@@ -1,11 +1,10 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-const Color darkBlue = Color.fromARGB(255, 18, 32, 47);
-
+///elliptical progress bar
 class EllipticalProgressBar extends StatefulWidget {
+  ///constructor of elliptical progress bar
   const EllipticalProgressBar(
       {Key? key,
       required this.fillColor,
@@ -14,18 +13,30 @@ class EllipticalProgressBar extends StatefulWidget {
       this.textColor = Colors.white,
       this.showCenterProgress = true,
       this.thickness = 10,
-      this.disableAnimation = false,
       this.progressTextStyle})
       : super(key: key);
 
-  final Color fillColor; //show the color of progress
-  final Color bgColor; //color of the loop
-  final Color? textColor; //color of the center progress text
-  final bool? showCenterProgress; //to show or hide the progress value at center
-  final double progress; //progress value
-  final double? thickness; //thickness of the bar
+  ///fill color of the progress value
+  final Color fillColor;
+
+  ///color of the loop
+  final Color bgColor;
+
+  ///color of the center progress text
+  final Color? textColor;
+
+  ///to show or hide the progress value at center
+  final bool? showCenterProgress;
+
+  ///progress value
+  final double progress;
+
+  ///thickness of the bar
+  final double? thickness;
+
+  ///To customise the center progress text style
   final TextStyle? progressTextStyle;
-  final bool? disableAnimation;
+
   @override
   State<EllipticalProgressBar> createState() => _EllipticalProgressBarState();
 }
@@ -34,15 +45,10 @@ class _EllipticalProgressBarState extends State<EllipticalProgressBar> {
   @override
   void initState() {
     super.initState();
-    if (widget.disableAnimation == true) {
-      return;
-    }
   }
 
   @override
   Widget build(BuildContext context) {
-    const startAngle = -90;
-    const endAngle = 180;
     return Stack(
       children: [
         //outer opaque loop
@@ -69,13 +75,11 @@ class _EllipticalProgressBarState extends State<EllipticalProgressBar> {
             width: double.infinity,
             child: CustomPaint(
               painter: ProgressIndicatorPainter(
-                  width: widget.thickness!,
-                  startAngle: startAngle,
-                  sweepAngle: endAngle,
-                  color: widget.fillColor,
-                  progressValue: widget.progress,
-                  thickness: widget.thickness,
-                  disableAnimation: widget.disableAnimation!),
+                width: widget.thickness!,
+                color: widget.fillColor,
+                progressValue: widget.progress,
+                thickness: widget.thickness,
+              ),
               child: widget.showCenterProgress!
                   ? Center(
                       child: Center(
@@ -95,29 +99,33 @@ class _EllipticalProgressBarState extends State<EllipticalProgressBar> {
   }
 }
 
+///custom painter for progress indicator
 class ProgressIndicatorPainter extends CustomPainter {
+  ///constructor of ProgressIndicatorPainter
   const ProgressIndicatorPainter(
       {required this.width,
-      required this.startAngle,
-      required this.sweepAngle,
       required this.color,
       required this.progressValue,
-      required this.disableAnimation,
       this.thickness = 30})
       : super();
 
+  ///total width to create the progress bar with
   final double width;
-  final int startAngle;
-  final int sweepAngle;
+
+  ///fill color of the progress value
   final Color color;
+
+  ///progress value
   final double progressValue;
+
+  ///thickness of the loop
   final double? thickness;
-  final bool disableAnimation;
 
   @override
   void paint(Canvas canvas, Size size) {
+    const startAngle = -90;
     final r = size.height / 2 - thickness! / 2;
-    final startAngleRad = startAngle * (math.pi / 180.0);
+    const startAngleRad = startAngle * (math.pi / 180.0);
     final firstArcCenter = Offset(
         size.width / 2 + ((size.width / 2 - r) - thickness! / 2),
         size.height / 2);

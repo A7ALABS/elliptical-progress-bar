@@ -30,3 +30,6 @@
 
 ## 0.1.0+1
 * Documentation fixes.
+
+## 0.1.1
+* Added Public API doc comments.

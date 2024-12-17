@@ -1,12 +1,11 @@
 import 'dart:async';
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-const Color darkBlue = Color.fromARGB(255, 18, 32, 47);
-
+///animated elliptical progress bar
 class AnimatedEllipticalProgressBar extends StatefulWidget {
+  ///constructor of animated elliptical progress bar
   const AnimatedEllipticalProgressBar(
       {Key? key,
       required this.fillColor,
@@ -18,13 +17,28 @@ class AnimatedEllipticalProgressBar extends StatefulWidget {
       this.progressTextStyle})
       : super(key: key);
 
-  final Color fillColor; //show the color of progress
-  final Color bgColor; //color of the loop
-  final Color? textColor; //color of the center progress text
-  final bool? showCenterProgress; //to show or hide the progress value at center
-  final double progress; //progress value
-  final double? thickness; //thickness of the bar
+  ///fill color of the progress value
+  final Color fillColor;
+
+  ///color of the loop
+  final Color bgColor;
+
+  ///color of the center progress text
+  final Color? textColor;
+
+  ///to show or hide the progress value at center
+  final bool? showCenterProgress;
+
+  ///progress value
+  final double progress;
+
+  ///thickness of the bar
+  final double? thickness;
+
+  ///To customise the center progress text style
   final TextStyle? progressTextStyle;
+
+  ///text style of the progress value
   @override
   State<AnimatedEllipticalProgressBar> createState() =>
       _AnimatedEllipticalProgressBarState();
@@ -32,10 +46,8 @@ class AnimatedEllipticalProgressBar extends StatefulWidget {
 
 class _AnimatedEllipticalProgressBarState
     extends State<AnimatedEllipticalProgressBar> with TickerProviderStateMixin {
-  //custom text style for the center progress value
   AnimationController? firstAnimationController;
   Animation<double>? firstAnimation;
-
   AnimationController? secondAnimationController;
   Animation<double>? secondAnimation;
   AnimationController? thirdAnimationController;
@@ -188,8 +200,6 @@ class _AnimatedEllipticalProgressBarState
 
   @override
   Widget build(BuildContext context) {
-    const startAngle = -90;
-    const endAngle = 180;
     return Stack(
       children: [
         //outer opaque loop
@@ -223,8 +233,6 @@ class _AnimatedEllipticalProgressBarState
                 fourthAnimatedProgress: fourthAnimation?.value ?? 0,
                 fifthAnimatedProgress: fifthAnimation?.value ?? 0,
                 sixthAnimatedProgress: sixthAnimation?.value ?? 0,
-                startAngle: startAngle,
-                sweepAngle: endAngle,
                 color: widget.fillColor,
                 progressValue: widget.progress,
                 thickness: widget.thickness,
@@ -248,11 +256,11 @@ class _AnimatedEllipticalProgressBarState
   }
 }
 
+///custom painter for progress indicator
 class ProgressIndicatorPainter extends CustomPainter {
+  ///constructor of ProgressIndicatorPainter
   const ProgressIndicatorPainter(
       {required this.width,
-      required this.startAngle,
-      required this.sweepAngle,
       required this.color,
       required this.progressValue,
       required this.firstAnimatedProgress,
@@ -264,23 +272,41 @@ class ProgressIndicatorPainter extends CustomPainter {
       this.thickness = 30})
       : super();
 
+  ///total width to create the progress bar with
   final double width;
-  final int startAngle;
-  final int sweepAngle;
+
+  ///fill color of the progress value
   final Color color;
+
+  ///progress value
   final double progressValue;
+
+  ///thickness of the loop
   final double? thickness;
+
+  ///animation value for first part
   final double firstAnimatedProgress;
+
+  ///animation value for second part
   final double secondAnimatedProgress;
+
+  ///animation value for third part
   final double thirdAnimatedProgress;
+
+  ///animation value for fourth part
   final double fourthAnimatedProgress;
+
+  ///animation value for fifth part
   final double fifthAnimatedProgress;
+
+  ///animation value for sixth part
   final double sixthAnimatedProgress;
 
   @override
   void paint(Canvas canvas, Size size) {
+    const startAngle = -90;
     final r = size.height / 2 - thickness! / 2;
-    final startAngleRad = startAngle * (math.pi / 180.0);
+    const startAngleRad = startAngle * (math.pi / 180.0);
     final firstArcCenter = Offset(
         size.width / 2 + ((size.width / 2 - r) - thickness! / 2),
         size.height / 2);
