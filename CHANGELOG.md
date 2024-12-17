@@ -23,3 +23,7 @@
 
 ## 0.0.1+6
 * Added desktop support
+
+## 0.1.0
+* EllipticalProgressBar is now stateful.
+* Added *AnimatedEllipticalProgressBar*, supporting animation. 
